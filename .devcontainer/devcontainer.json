@@ -1,0 +1,19 @@
+{
+    "name": "C# (.NET Core)",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "VARIANT": "3.1"
+        }
+    },
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "davidanson.vscode-markdownlint",
+        "eamodio.gitlens",
+        "ms-dotnettools.csharp",
+        "streetsidesoftware.code-spell-checker-german",
+        "streetsidesoftware.code-spell-checker",
+    ]
+}
