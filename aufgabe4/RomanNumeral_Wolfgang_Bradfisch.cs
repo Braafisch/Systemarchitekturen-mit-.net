@@ -45,7 +45,7 @@ namespace aufgabe4
                 number += (curr < prev ? -curr  :  curr);
                 count += (curr == prev ? 1 : -count);
                 
-                if (count >= 3 || count == 1 && (prev < prevprev || 0 != Math.Log10(curr) % 1) || curr < prev / 10 || curr == prev / 2 || curr < prev && prev == prevprev)
+                if (count >= 3 || count == 1 && (prev < prevprev || Math.Log10(curr) % 1 != 0) || curr < prev / 10 || curr == prev / 2 || curr < prev && prev == prevprev)
                     throw new ArgumentException("Invalid roman number " + letters);
                 prevprev = prev;         
                 prev = curr; 
