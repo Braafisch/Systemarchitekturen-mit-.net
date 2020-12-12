@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 
 namespace aufgabe7
@@ -13,7 +14,7 @@ namespace aufgabe7
         public booking(string date, string usecase, string money) 
         {
             try {
-                this.money = Double.Parse(money.Replace(",", "."));
+                this.money = Double.Parse(money, new CultureInfo("de-DE"));
                 this.usecase = usecase;
                 this.date = DateTime.Parse(date);
             }
@@ -28,6 +29,7 @@ namespace aufgabe7
             {
                 using (var writer = new StreamWriter(fs))
                 {
+                    writer.Flush();
                     writer.WriteLine("{0};{1};{2}", date.ToString("dd.MM.yyyy"), usecase, money.ToString());
                 }
             }
