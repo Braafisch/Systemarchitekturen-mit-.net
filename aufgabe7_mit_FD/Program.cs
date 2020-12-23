@@ -26,8 +26,8 @@ namespace aufgabe7_mit_FD
         }
         static void Main(string[] args)
         {
-            var booking = new Program();
-            booking.Run(args);
+            var Booking = new Program();
+            Booking.Run(args);
         }
         internal void Run(IEnumerable<string> args)
         {
