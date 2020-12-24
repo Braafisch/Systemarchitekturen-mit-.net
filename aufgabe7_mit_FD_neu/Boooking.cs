@@ -5,29 +5,29 @@ namespace aufgabe7_mit_FD_neu
 {
     class Booking
     {
-        public string Path;
-        public Booking(string path) => Path = path;
+        public string path;
+        public Booking(string path) => this.path = path;
         public void AddBooking(Entry entry)
         {
-            using (var fs = File.Open(Path, FileMode.Append))
+            using (var fs = File.Open(path, FileMode.Append))
             {
                 using (var writer = new StreamWriter(fs))
                 {
                     writer.Flush();
-                    writer.WriteLine("{0};{1};{2}", entry.Date.ToString("dd.MM.yyyy"), entry.Usecase, entry.Money);
+                    writer.WriteLine("{0};{1};{2}", entry.date.ToString("dd.MM.yyyy"), entry.usecase, entry.money);
                 }
             }
         }
         public class Entry
         {
-            public DateTime Date;
-            public string Usecase;
-            public decimal Money;
+            public DateTime date;
+            public string usecase;
+            public decimal money;
             public Entry(DateTime date, string usecase, decimal money)
             {
-                Date = date;
-                Usecase = usecase;
-                Money = money;
+                this.date = date;
+                this.usecase = usecase;
+                this.money = money;
             }
         }
     }

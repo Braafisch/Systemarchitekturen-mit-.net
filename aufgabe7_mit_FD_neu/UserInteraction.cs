@@ -8,20 +8,20 @@ namespace aufgabe7_mit_FD_neu
     {
         public void CheckEntry(IEnumerable<string> args,
                                Action<IEnumerable<string>> onAdd,
-                               Action onNotAdd,
-                               Action onMissing)
+                               Action onWrongInput,
+                               Action onMissingArg)
         {
-            if (args.First() == "add")
+            if (args.First() == "add" && args.Count() == 4)
             {
                 onAdd(args.Skip(1));
             }
             else if (args.Count() == 4)
             {
-                onMissing();
+                onWrongInput(); 
             }
             else
             {
-                onNotAdd();
+                onMissingArg();
             }
         }
         public void Confirm(Action<Booking.Entry> onConfirm,
