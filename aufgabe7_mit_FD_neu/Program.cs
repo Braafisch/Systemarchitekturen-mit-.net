@@ -26,20 +26,14 @@ namespace aufgabe7_mit_FD_neu
                                        {
                                            var date = DateTime.ParseExact(remaning.First(),"d.M.yyyy", CultureInfo.InvariantCulture);
                                            var usecase = remaning.ElementAt(1);
-                                           var money = Decimal.Parse(remaning.Last(), NumberStyles.AllowDecimalPoint, new CultureInfo("de-DE"));
+                                           var money = Decimal.Parse(remaning.Last(), new CultureInfo("de-DE"));
                                            UserInteraction.Confirm(onConfirm: Booking.AddBooking,
                                                                    onReject: () => {},
                                                                    entry: new Booking.Entry(date, usecase, money)
                                                                    );
                                        },
-                                       onNotAdd: () =>
-                                       {
-                                           Console.Error.WriteLine("Wrong Input!");
-                                       },
-                                       onMissing: () =>
-                                       {
-                                           Console.Error.WriteLine("Missing Argument!");
-                                       }
+                                       onNotAdd: UserInteraction.PrintErr,
+                                       onMissing: UserInteraction.PrintMissingErr
                                        );
         }
     }

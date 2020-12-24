@@ -43,5 +43,13 @@ namespace aufgabe7_mit_FD_neu
                     break;
             }
         }
+        public void PrintErr()
+        {
+            Console.Error.WriteLine("Wrong Input!");
+        }
+        public void PrintMissingErr()
+        {
+            Console.Error.WriteLine("Missing Argument!");
+        }
     }
 }
