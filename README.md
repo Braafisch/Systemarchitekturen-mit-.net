@@ -16,7 +16,7 @@ dotnet run
 Mit `dotnet` können auch neue Projekte hinzugefügt und verwaltet werden. Dazu zunächst das Projekt im Projektordner erstellen:
 
 ```sh
-mkdir mein-neues-projet
+mkdir mein-neues-projekt
 cd mein-neues-projekt
 dotnet new console
 # Erzeugt eine Konsolenanwendung, weitere Projekt-Templates lassen sich per 'dotnet new -l' auflisten.
@@ -27,4 +27,13 @@ Danach sollte das Projekt noch in die übergeordnete Solution (`.sln`) Datei ein
 ```sh
 cd .. # zurück ins Hauptverzeichnis
 dotnet sln add mein-neues-projekt
+```
+
+Wenn man Tests für das Projekt schreiben will geht man wie folgt vor:
+
+```sh
+mkdir mein-neues-projekt.tests
+cd mein-neues-projekt.tests
+dotnet new xunit
+dotnet add reference ../mein-neues-projekt
 ```
