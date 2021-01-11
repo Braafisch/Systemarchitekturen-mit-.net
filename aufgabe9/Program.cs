@@ -6,10 +6,12 @@ namespace aufgabe9
     {
         internal UserInteraction UserInteraction;
         internal Possession Possession;  
+        internal PossessionLogic PossessionLogic;
         internal Program(int money)
         {
             UserInteraction = new UserInteraction();
             Possession = new Possession(money);
+            PossessionLogic = new PossessionLogic();
         }
         static void Main(string[] args)
         {
@@ -22,12 +24,11 @@ namespace aufgabe9
             {
                 Console.WriteLine(Possession.ToString());
                 Console.WriteLine("---");
-                UserInteraction.MainMenu(possession: Possession,
-                                         onMangeLand: secondLoob,
+                UserInteraction.MainMenu(onMangeLand: MangeLand,
                                          onEnd: () => {End = true;});
             }
         }
-        private void secondLoob()
+        private void MangeLand()
         {
             var Back = false;
             while(!Back)
@@ -42,17 +43,14 @@ namespace aufgabe9
         private void Buy()
         {
             var count = UserInteraction.Buy();
-            Possession.approvePurchase(count: count,
-                                       onApprove: Possession.Buy,
-                                       onNotApprove: UserInteraction.PrintErr);
-                Possession.Buy(count);
+            PossessionLogic.Buy(count: count,
+                                possession: Possession);
         }
         private void Sell()
         {
             var count = UserInteraction.Sell();
-            Possession.approveSell(count: count,
-                                   onApprove: Possession.Sell,
-                                   onNotApprove: UserInteraction.PrintErr);
+            PossessionLogic.Sell(count: count,
+                                possession: Possession);
         }
     }
 }

@@ -44,12 +44,12 @@ namespace aufgabe9
         }
         public int Sell()
         {
-            Console.WriteLine("How much land should be sold?");
+            Console.WriteLine("Wie viel Land soll verkauft werden?");
             return int.Parse(Console.ReadLine());
         }
         public int Buy()
         {
-            Console.WriteLine("How much land to purchase?");
+            Console.WriteLine("Wie viel Land soll gekauft werden?");
             return int.Parse(Console.ReadLine());
         }
         public void PrintErr()

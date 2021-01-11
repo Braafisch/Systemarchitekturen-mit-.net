@@ -6,15 +6,17 @@ namespace aufgabe9
     {
         public int money;
         public int land;
+        public Warehouse warehouse;
         public int landValue = 50;
-        public int purchased;
-        public int sold;
-        public Possession(int money)
+        public int purchasedLand;
+        public int soldLand;
+        public Possession(int money, int land, Warehouse warehouse)
         {
-            this.land = 0;
+            this.land = land;
             this.money = money;
-            this.purchased = 0;
-            this.sold = 0;
+            this.warehouse = warehouse;
+            this.purchasedLand = 0;
+            this.soldLand = 0;
         }
         public override string ToString()
         {
@@ -23,11 +25,11 @@ namespace aufgabe9
     }
     public class PossessionLogic
     {
-        public void Sell(int count, Possession possession)
+        public void SellLand(int count, Possession possession)
         {
-            if (possession.purchased - (possession.sold + count) >= 0)
+            if (possession.purchasedLand - (possession.soldLand + count) >= 0)
             {
-                possession.sold += count;
+                possession.soldLand += count;
                 possession.land -= count;
                 possession.money += (possession.landValue - possession.landValue / 10) * count;
             }
@@ -36,17 +38,26 @@ namespace aufgabe9
                 throw new InvalidOperationException("Not enough properties!");
             }
         }
-        public void Buy(int count, Possession possession)
+        public void BuyLand(int count, Possession possession)
         {
             if (possession.money - count * possession.landValue >= 0)
             {
-                possession.purchased += count;
+                possession.purchasedLand += count;
                 possession.land += count;
                 possession.money -= possession.landValue * count;
             }
             else 
             {
                 throw new InvalidOperationException("Not enough equity!");
+            }
+        }
+        public void BuyWeed(int count, Possession possession)
+        {
+            var cost = possession.warehouse.weedValue * count;
+            if (money - cost > 0)
+            {
+                money -= cost;
+                possession.warehouse.weed += count;
             }
         }
     }
