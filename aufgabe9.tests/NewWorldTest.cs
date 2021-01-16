@@ -4,7 +4,7 @@ using Moq;
 
 namespace aufgabe9.tests
 {
-    public class UnitTest1
+    public class NewWorldTest
     {
         [Fact]
         public void SmokeTest()

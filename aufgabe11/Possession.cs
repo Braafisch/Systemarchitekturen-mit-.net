@@ -1,6 +1,6 @@
 using System;
 
-namespace aufgabe10
+namespace aufgabe11
 {
     public class Possession
     {
@@ -25,7 +25,7 @@ namespace aufgabe10
     }
     public class PossessionLogic
     {
-        public void SellLand(int count, Possession possession)
+        public void Sell(int count, Possession possession)
         {
             if (possession.purchasedLand - (possession.soldLand + count) >= 0)
             {
@@ -70,6 +70,31 @@ namespace aufgabe10
             {
                 possession.money += (Math.Floor(possession.warehouse.weedValue - possession.warehouse.weedValue / 10)) * count;
                 possession.warehouse.weed -= count;
+            }
+            else
+            {
+                throw new InvalidOperationException("Not enough weed!");
+            }
+        }
+        public void BuyOil(int count, Possession possession)
+        {
+            var cost = possession.warehouse.oilValue * count;
+            if (possession.money - cost > 0)
+            {
+                possession.money -= cost;
+                possession.warehouse.oil += count;
+            }
+            else
+            {
+                throw new InvalidOperationException("Not enough equity!");
+            }
+        }
+        public void SellOil(int count, Possession possession)
+        {
+            if (possession.warehouse.oil - count > 0)
+            {
+                possession.money += (Math.Floor(possession.warehouse.oilValue - possession.warehouse.oilValue / 10)) * count;
+                possession.warehouse.oil -= count;
             }
             else
             {

@@ -1,6 +1,6 @@
 using System;
 
-namespace aufgabe10
+namespace aufgabe11
 {
     public class UserInteraction
     {
@@ -76,6 +76,10 @@ namespace aufgabe10
         {
             Console.WriteLine("How much should be purchase?");
             return int.Parse(Console.ReadLine());
+        }
+        public void PrintErr()
+        {
+            Console.Error.WriteLine("You can Buy/Sell this amount Land");
         }
     }
 }

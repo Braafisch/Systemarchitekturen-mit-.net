@@ -7,7 +7,7 @@ namespace aufgabe9
         public void MainMenu(Action onMangeLand,
                              Action onEnd)
         {
-            Console.WriteLine("1. Land verwalten\n2. Runde beenden");
+            Console.WriteLine("1. Manage land\n2. Exit Round");
             switch (Console.ReadLine())
             {
                 case "1":
@@ -25,7 +25,7 @@ namespace aufgabe9
                                    Action onSell,
                                    Action onBack)
         {
-            Console.WriteLine("1. Land kaufen\n2. Land verkaufen\n3. Zurück");
+            Console.WriteLine("1. Buy land\n2. Sell land\n3. Back");
             switch (Console.ReadLine())
             {
                 case "1":
