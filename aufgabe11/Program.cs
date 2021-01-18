@@ -36,7 +36,7 @@ namespace aufgabe11
             {
                 Console.WriteLine(Possession.ToString());
                 Console.WriteLine("---");
-                UserInteraction.ManageLandMenu(onBuy: () =>               
+                UserInteraction.ManageLandMenu(onBuy: () =>
                                                {
                                                    PossessionLogic.BuyLand(count: UserInteraction.AmountToBuy(),
                                                                            possession: Possession);
@@ -56,22 +56,40 @@ namespace aufgabe11
             {
                 Console.WriteLine(Possession.ToString());
                 Console.WriteLine("---");
-                UserInteraction.ManageMarketMenu(onBuy: () =>               
-                                               {
-                                                   PossessionLogic.BuyWeed(count: UserInteraction.AmountToBuy(),
-                                                                           possession: Possession);
-                                               },
-                                               onSell: () =>
-                                               {
-                                                   PossessionLogic.SellWeed(count: UserInteraction.AmountToSell(),
-                                                                            possession: Possession);
-                                               },
-                                               onBack: () => { Back = true; });
+                UserInteraction.ManageMarketMenu(onBuy: BuyGoods,
+                                                 onSell: SellGoods,
+                                                 onBack: () => { Back = true; });
             }
+        }
+        private void BuyGoods()
+        {
+            UserInteraction.ManageBuyGoodsMenu(warehouse: Possession.warehouse,
+                                               onGood: (goodName) =>
+                                               {
+                                                    PossessionLogic.BuyGoods(goodName: goodName,
+                                                                                count: UserInteraction.AmountToBuy(),
+                                                                                possession: Possession);
+                                               },
+                                               onAbort: () => { });
+        }
+        private void SellGoods()
+        {
+            UserInteraction.ManageSellGoodsMenu(warehouse: Possession.warehouse,
+                                                onGood: (goodName) =>
+                                                {
+                                                    PossessionLogic.SellGoods(goodName: goodName,
+                                                    count: UserInteraction.AmountToSell(),
+                                                    possession: Possession);
+                                                },
+                                                onAbort: () => { });
         }
         private Possession ConfigPlayer(int money, int land, int weed, int oil, int metal, int christall)
         {
-            var warehouse = new Warehouse(weed: weed, oil: oil, metal: metal, christall: christall);
+            var warehouse = new Warehouse();
+            warehouse.AddGood(goodName: "weed", amount: weed, value: 25);
+            warehouse.AddGood(goodName: "oil", amount: oil, value: 50);
+            warehouse.AddGood(goodName: "metal", amount: metal, 60);
+            warehouse.AddGood(goodName: "christall", amount: christall, 75);
             var possession = new Possession(money: money, land: land, warehouse: warehouse);
             return possession;
         }

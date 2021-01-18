@@ -1,27 +1,38 @@
 using System;
+using System.Collections.Generic;
 
 namespace aufgabe11
 {
     public class Warehouse
     {
-        public int weed;
-        public decimal weedValue = 25;
-        public int oil;
-        public decimal oilValue = 50;
-        public int metal;
-        public decimal metalValue = 60;
-        public int christall;
-        public decimal christallValue = 75;
-        public Warehouse(int weed, int oil, int metal, int christall)
+        public Dictionary<string, Good> goods;
+        public Warehouse()
         {
-            this.weed = weed;
-            this.oil = oil;
-            this.metal = metal;
-            this.christall = christall;
+            goods = new Dictionary<string, Good>();
+        }
+        public void AddGood(string goodName, int amount, int value) 
+        {
+            var good = new Good(value: value, amount: amount);
+            goods.Add(goodName, good);
         }
         public override string ToString()
         {
-            return String.Format("\n    stock   Value\nweed {0}      {1}\noil {2}      {3}\nmetal {4}      {5}\nchristall {6}      {7}", weed, weedValue, oil, oilValue, metal, metalValue, christall, christallValue);
+            var returnString = "\n          stock value\n";
+            foreach (KeyValuePair<string, Good> good in goods)
+            {
+                returnString += String.Format("{0,10}{1,5} {2,-4}\n", good.Key, good.Value.amount, good.Value.value);
+            }
+            return returnString;
+        }
+    }
+    public class Good
+    {
+        public decimal value;
+        public int amount;
+        public Good(decimal value, int amount)
+        {
+            this.value = value;
+            this.amount = amount;
         }
     }
 }
