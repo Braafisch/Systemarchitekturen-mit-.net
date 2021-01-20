@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aufgabe10.tests", "aufgabe1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aufgabe11", "aufgabe11\aufgabe11.csproj", "{0AE14A0E-85CA-45B8-AFF2-D3415E94552B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aufgabe12", "aufgabe12\aufgabe12.csproj", "{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -226,5 +228,17 @@ Global
 		{0AE14A0E-85CA-45B8-AFF2-D3415E94552B}.Release|x64.Build.0 = Release|Any CPU
 		{0AE14A0E-85CA-45B8-AFF2-D3415E94552B}.Release|x86.ActiveCfg = Release|Any CPU
 		{0AE14A0E-85CA-45B8-AFF2-D3415E94552B}.Release|x86.Build.0 = Release|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Debug|x64.Build.0 = Debug|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Debug|x86.Build.0 = Debug|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Release|x64.ActiveCfg = Release|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Release|x64.Build.0 = Release|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Release|x86.ActiveCfg = Release|Any CPU
+		{E3EE6E78-3086-4CEC-BA0F-BC765B9CD206}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

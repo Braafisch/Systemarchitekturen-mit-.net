@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace aufgabe11
+namespace aufgabe12
 {
     class Program
     {
@@ -11,7 +11,7 @@ namespace aufgabe11
         {
             UserInteraction = new UserInteraction();
             PossessionLogic = new PossessionLogic();
-            Possession = ConfigPlayer(money: 100, land: 5, weed: 25, oil: 10, metal: 5, christall: 0);
+            Possession = ConfigPlayer(money: 100, land: 5, settlers: 20, weed: 25, oil: 10, metal: 5, christall: 0);
         }
         static void Main(string[] args)
         {
@@ -66,9 +66,9 @@ namespace aufgabe11
             UserInteraction.ManageBuyGoodsMenu(warehouse: Possession.warehouse,
                                                onGood: (goodName) =>
                                                {
-                                                    PossessionLogic.BuyGoods(goodName: goodName,
-                                                                             count: UserInteraction.AmountToBuy(),
-                                                                             possession: Possession);
+                                                   PossessionLogic.BuyGoods(goodName: goodName,
+                                                                            count: UserInteraction.AmountToBuy(),
+                                                                            possession: Possession);
                                                },
                                                onAbort: () => { });
         }
@@ -83,14 +83,14 @@ namespace aufgabe11
                                                 },
                                                 onAbort: () => { });
         }
-        private Possession ConfigPlayer(int money, int land, int weed, int oil, int metal, int christall)
+        private Possession ConfigPlayer(int money, int land, int settlers, int weed, int oil, int metal, int christall)
         {
             var warehouse = new Warehouse();
             warehouse.AddGood(goodName: "weed", amount: weed, value: 25);
             warehouse.AddGood(goodName: "oil", amount: oil, value: 50);
             warehouse.AddGood(goodName: "metal", amount: metal, 60);
             warehouse.AddGood(goodName: "christall", amount: christall, 75);
-            var possession = new Possession(money: money, land: land, warehouse: warehouse);
+            var possession = new Possession(money: money, land: land, settlers: settlers, warehouse: warehouse);
             return possession;
         }
     }
